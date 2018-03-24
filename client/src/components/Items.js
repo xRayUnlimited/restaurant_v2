@@ -25,17 +25,19 @@ class Items extends React.Component {
     return items.map( item =>
       <Container key={item.id}>
       <Comment.Group size='large'>
+      <Divider />
+
         <Comment>
           <Comment.Avatar as="a" src={item.img} />
+          <Comment.Text>
+            <div>{item.name}</div>
+          </Comment.Text>
           <Comment.Content>
             <Comment.Author as="a">{item.description}</Comment.Author>
             <Comment.Metadata>
               <div>{item.price}</div>
             </Comment.Metadata>
-            <Divider />
-            <Comment.Text>
-            <div>{item.name}</div>
-            </Comment.Text>
+            
             <Comment.Actions>
               <Link to={`/items/${item.id}`}>
                 View Item
@@ -57,7 +59,7 @@ class Items extends React.Component {
           { showItemForm ? 'Close Form' : 'Create New Item' }
         </Button>
         { showItemForm ? 
-          <ItemForm closeFrom={this.toggleItemForm} />
+          <ItemForm closeForm={this.toggleItemForm} />
           :
           <div>
           <Divider />

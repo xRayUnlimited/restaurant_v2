@@ -29,6 +29,7 @@ class ItemForm extends React.Component {
     const { closeForm, dispatch } = this.props
     const func = this.props.id ? updateItem : addItem
     dispatch(func(item))
+    closeForm()
   }
 
   render() {

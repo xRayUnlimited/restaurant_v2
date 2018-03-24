@@ -11,8 +11,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def create
-    # TODO???
-    item = current_user.item.new(item_params)
+    item = Item.new(item_params)
 
     if item.save
       render json: item
