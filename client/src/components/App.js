@@ -10,6 +10,8 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import { Switch, Route } from 'react-router-dom';
+import FetchItems from './FetchItems';
+import Cart from './Cart';
 
 class App extends Component {
   render() {
@@ -23,6 +25,8 @@ class App extends Component {
             <Route exact path='/about' component={About} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
+            <ProtectedRoute path='/items' component={FetchItems} />
+            <ProtectedRoute path='/cart' component={Cart} />            
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
