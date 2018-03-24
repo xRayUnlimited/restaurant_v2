@@ -19,6 +19,7 @@ class NavBar extends Component {
       );
     }
     return (
+      
       <Menu.Menu position='right'>
       <Link to='/menu'>
           <Menu.Item name='Menu' />
@@ -31,6 +32,9 @@ class NavBar extends Component {
         </Link>
         <Link to='/login'>
           <Menu.Item name='Login' />
+        </Link>
+      <Link to='/items'>
+          <Menu.Item name='Admin' />
         </Link>
       </Menu.Menu>
     );

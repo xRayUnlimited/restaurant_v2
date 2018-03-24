@@ -7,8 +7,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <Header as='h1' textAlign='center'>B&D BURGER</Header>
-      <Image src="./home.jpg" />
+      <Header as='h1' textAlign='center' white >B&D BURGER</Header>
+      <Image src="https://images.pexels.com/photos/254884/pexels-photo-254884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
 
       </div>
     );
