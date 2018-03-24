@@ -8,6 +8,8 @@ import
 
 const items = (state = [], action ) => {
   switch(action.type) {
+    case GET_ITEMS:
+      return action.items
     case ITEMS:
       return action.items
     case ADD_ITEM:
