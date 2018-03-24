@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :items
     put "/items/:id/in_cart", to: "items#in_cart"
+    post "/items/submit_cart", to: "items#submit_cart"
     #API ROUTES SHOULD GO HERE
   end
 

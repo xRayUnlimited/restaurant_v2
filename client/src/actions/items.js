@@ -14,6 +14,12 @@ export const toggleInCart = (id) => {
   }
 }
 
+export const submitCart = (cartItems) => {
+  return (dispatch) => {
+    axios.post(`/api/items/submit_cart`, {items: cartItems})
+  }
+}
+
 export const getItems = () => {
   return (dispatch) => {
     axios.get('/api/items')
