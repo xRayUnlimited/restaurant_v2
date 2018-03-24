@@ -1,5 +1,5 @@
 class Api::ItemsController < ApplicationController
-  access all: [:show, :index], user: [:index], admin: :all
+  access all: [:show, :index], user: :all, admin: :all
   # before_action :authenticate_user!
   before_action :set_item, only: [:show, :update, :destroy]
 
