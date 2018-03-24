@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Header, Card, Image, Button, Dropdown, Divider, Comment, Icon } from 'semantic-ui-react';
+import { Container, Grid, Header, Card, Image, Button, Dropdown, Divider, Comment, Icon,Responsive } from 'semantic-ui-react';
 import ItemForm from './ItemForm';
 import { getItems, toggleInCart } from '../actions/items';
 import axios from 'axios';
@@ -50,16 +50,17 @@ class Items extends React.Component {
   render() {
     const { showItemForm } = this.state;
     return (
-      <div>
-        <Link to='/cart'>Go To Cart</Link>
-          <Container>
-            <Grid>
-            <Grid.Row columns={3} divided >
-                { this.items() }
-            </Grid.Row>
-          </Grid>
-        </Container>
-      </div>
+      <Container>
+        
+        <Responsive as={Card.Group} minwidth={ 767 } itemsPerRow={3}>
+            { this.items() }
+        </Responsive>
+         
+        <Responsive as={Card.Group} maxwidth={ 767 } itemsPerRow={1}>
+            { this.items() }
+        </Responsive>
+      
+    </Container>
     )
   }
 }

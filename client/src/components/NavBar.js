@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
+import './navbar.css'
 
 class NavBar extends Component {
   rightNavs = () => {
@@ -19,6 +20,7 @@ class NavBar extends Component {
       );
     }
     return (
+      
       <Menu.Menu position='right'>
       <Link to='/menu'>
           <Menu.Item name='Menu' />
@@ -33,18 +35,32 @@ class NavBar extends Component {
           <Menu.Item name='Login' />
         </Link>
       </Menu.Menu>
-    );
+    )
+
   }
 
   render() {
     return (
-      <div>
-        <Menu pointing secondary>
+      <div style={{paddingBottom: '30px'}}>
+      <div className="desktopSizeDiv">
+        <Menu pointing secondary style={{width: '100%'}}>
           <Link to='/'>
             <Menu.Item name='home' />
           </Link>
           { this.rightNavs() }
         </Menu>
+        </div>
+        <div className="mobileSizeDiv">
+            <Dropdown icon='content' floating className='link item' style={{color: 'blue', display: 'flex', justifyContent: 'center', fontSize: '24px', margin: '20px'}}>
+                <Dropdown.Menu className="menuTop" >
+                    <Menu.Item as='a' href="/">Home</Menu.Item>                                                                                
+                    <Menu.Item as='a' href="/menu">Menu</Menu.Item>                            
+                    <Menu.Item as='a' href="/about">About</Menu.Item>
+                    <Menu.Item as='a' href="/login">Login</Menu.Item>
+                    <Menu.Item as='a' href="/register">register</Menu.Item>                       
+                </Dropdown.Menu>
+            </Dropdown>
+        </div>
       </div>
     );
   }

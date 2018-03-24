@@ -1,0 +1,16 @@
+.desktopSizeDiv{
+  display: flex !important;
+}
+
+.mobileSizeDiv{
+ display: none !important;
+}
+
+@media (max-width: 768px){
+  .mobileSizeDiv {
+    display: flex !important;
+  }
+  .desktopSizeDiv {
+    display: none !important;
+  }
+}

@@ -6,11 +6,8 @@ import { Header, Footer, Image } from 'semantic-ui-react';
 class Home extends Component {
   render() {
     return (
-      <div>
-      <Header as='h1' textAlign='center'>B&D BURGER</Header>
-      <Image src="./home.jpg" />
-
-      </div>
+      <Header as='h1' textAlign='center'>B&D BURGERS</Header>
+      
     );
     <footer as='h4' textAlign= 'center'>by the RAYBUL team</footer>
   }
