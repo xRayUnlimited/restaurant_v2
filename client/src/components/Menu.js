@@ -48,12 +48,13 @@ class Items extends React.Component {
     const { showItemForm } = this.state;
     return (
       <Container>
-        <Grid>
-        <Grid.Row columns={3} divided >
-            { this.items() }
-        </Grid.Row>
-      </Grid>
-    </Container>
+      <Divider hidden />
+          <Grid>
+          <Grid.Row columns={3} divided >
+              { this.items() }
+          </Grid.Row>
+        </Grid>
+      </Container>
     )
   }
 }

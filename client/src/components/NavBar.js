@@ -20,6 +20,9 @@ class NavBar extends Component {
     }
     return (
       <Menu.Menu position='right'>
+      <Link to='/menu'>
+          <Menu.Item name='Menu' />
+        </Link>
       <Link to='/about'>
           <Menu.Item name='About' />
         </Link>
