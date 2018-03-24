@@ -37,7 +37,7 @@ class Items extends React.Component {
             {item.description}
           </Card.Description>
         </Card.Content>
-        <Button> Edit </Button>
+        <Button> Add to Cart</Button>
         </Card>
         <Divider hidden />
       </Grid.Column>
