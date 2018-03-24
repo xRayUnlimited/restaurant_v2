@@ -1,6 +1,5 @@
 class Api::ItemsController < ApplicationController
-  access all: [:show, :index], user: :all, admin: :all
-  # before_action :authenticate_user!
+  access all: [:show, :index, :in_cart, :submit_cart], user: :all, admin: :all
   before_action :set_item, only: [:show, :update, :destroy, :in_cart]
 
   def index
@@ -32,6 +31,16 @@ class Api::ItemsController < ApplicationController
   def in_cart
     @item.update(in_cart: !@item.in_cart)
     render json: @item
+  end
+
+  def submit_cart
+    items = params[:items]
+    order = Order.create
+    items.each do |item|
+      order.order_items.create(name: item["name"])
+    end
+    Item.update_all(in_cart: false)
+    render json: "Order was submitted"
   end
 
   def destroy
