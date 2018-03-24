@@ -1,7 +1,7 @@
 class Api::ItemsController < ApplicationController
   access all: [:show, :index], user: :all, admin: :all
   # before_action :authenticate_user!
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:show, :update, :destroy, :in_cart]
 
   def index
     render json: Item.all
@@ -27,6 +27,11 @@ class Api::ItemsController < ApplicationController
     else
       render json: { errors: item.errors.full_messages.join(',') }, status: 422
     end
+  end
+
+  def in_cart
+    @item.update(in_cart: !@item.in_cart)
+    render json: @item
   end
 
   def destroy

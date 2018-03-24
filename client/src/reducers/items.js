@@ -23,6 +23,12 @@ const items = (state = [], action ) => {
       })
     case DELETE_ITEM:
       return state.filter( i => i.id !== action.id)
+    case 'TOGGLE_IN_CART':
+      return state.map( item => {
+        if (item.id === action.id)
+          return {...item, in_cart: !item.in_cart}
+        return item
+      })
     default:
       return state;
   }

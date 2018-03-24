@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, Card, Image, Button, Dropdown, Divider, Comment, Icon } from 'semantic-ui-react';
 import ItemForm from './ItemForm';
-import { getItems } from '../actions/items';
+import { getItems, toggleInCart } from '../actions/items';
+import axios from 'axios';
 
 class Items extends React.Component {
   state = { cart: [], showItemForm: false }
@@ -20,11 +21,11 @@ class Items extends React.Component {
   }
 
   items = () => {    
-    const { items } = this.props;
+    const { items, dispatch } = this.props;
 
     return items.map( item =>
-      <Grid.Column>
-        <Card key={items.id}>
+      <Grid.Column key={item.id}>
+        <Card>
         <Image src={item.img} />
         <Card.Content>
           <Card.Header>
@@ -37,7 +38,9 @@ class Items extends React.Component {
             {item.description}
           </Card.Description>
         </Card.Content>
-        <Button> Add to Cart</Button>
+        <Button onClick={() => dispatch(toggleInCart(item.id)) }>
+          { item.in_cart ? 'Remove From Cart' : 'Add To Cart' }
+        </Button>
         </Card>
         <Divider hidden />
       </Grid.Column>
@@ -47,14 +50,16 @@ class Items extends React.Component {
   render() {
     const { showItemForm } = this.state;
     return (
-      <Container>
-      <Divider hidden />
-          <Grid>
-          <Grid.Row columns={3} divided >
-              { this.items() }
-          </Grid.Row>
-        </Grid>
-      </Container>
+      <div>
+        <Link to='/cart'>Go To Cart</Link>
+          <Container>
+            <Grid>
+            <Grid.Row columns={3} divided >
+                { this.items() }
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </div>
     )
   }
 }

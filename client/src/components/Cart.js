@@ -6,16 +6,21 @@ import axios from 'axios';
 class Cart extends React.Component {
 
   render() {
-    return (
-      <div>
-        <Container>
-          <Header align="center" as="h1"> Your Order </Header>
-          <Button centered> Submit Order </Button>
-        </Container>
+    const cartItems = this.props.items.filter ( i => i.in_cart )
+      return ( 
+        <div>
+          { cartItems.map( item => 
+            <p>{item.name}</p>
+          ) }
+        <Button>Submit Order</Button>
       </div>
     )
   }
 }
 
 
-export default Cart;
+const mapStateToProps = (state) => {
+  return { items: state.items }
+}
+
+export default connect(mapStateToProps)(Cart);

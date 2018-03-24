@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180324203437) do
     t.string "img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "in_cart", default: false
   end
 
   create_table "users", force: :cascade do |t|

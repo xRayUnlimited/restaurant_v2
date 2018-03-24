@@ -18,7 +18,7 @@ class Items extends React.Component {
       return { showItemForm: !state.showItemForm }
     })
   }
-
+  
   items = () => {    
     const { items } = this.props;
 

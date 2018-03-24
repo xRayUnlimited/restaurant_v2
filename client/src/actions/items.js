@@ -7,6 +7,13 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 
+export const toggleInCart = (id) => {
+  return (dispatch) => {
+    axios.put(`/api/items/${id}/in_cart`)
+      .then( () => dispatch({ type: 'TOGGLE_IN_CART', id }))
+  }
+}
+
 export const getItems = () => {
   return (dispatch) => {
     axios.get('/api/items')
