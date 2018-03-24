@@ -1,5 +1,6 @@
 import
 {
+  GET_ITEMS,
   ITEMS,
   ADD_ITEM,
   UPDATE_ITEM,
